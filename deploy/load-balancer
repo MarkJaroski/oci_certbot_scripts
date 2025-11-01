@@ -13,6 +13,8 @@ oci lb certificate create \
 	--public-certificate-file ${RENEWED_LINEAGE}/fullchain.pem
 	--private-key-file ${RENEWED_LINEAGE}/fullchain.pem
 
+# TODO: check for errors
+
 oci lb listener update \
 	--load-balancer-id ${load_balancer_id} \
 	--ssl-certificate-name ${cert_name} \
@@ -20,3 +22,8 @@ oci lb listener update \
 	--default-backend-set-name ${backend_set_name} \
 	--port 443 \
 	--protocol TCP
+
+# TODO: check for errors
+#
+# We should poentially raise an alarm to the console if either of these two
+# operations fail
