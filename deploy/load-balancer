@@ -1,9 +1,11 @@
 #!/bin/bash
 
 cert_name=$(basename ${RENEWED_LINEAGE} | sed 's/\./-/')-$(date +%Y-%m%d-%H%M)
-load_balancer_id=ocid1.loadbalancer.oc1.eu-zurich-1.aaaaaaaaznk2gcae3kgoq6vvcacft2i4uod6jtwpujdw3mnrg4cdp2irfdgq
-listener_name=listener_lb_2025-1101-1341
-backend_set_name=bs_lb_2025-1101-1341
+
+# these values might be better handled in the .oci/config
+load_balancer_id=<id string>
+listener_name=<load balancer public listener>
+backend_set_name=<load balancer bakend set (pool)>
 
 oci lb certificate create \
 	--load-balancer-id ${load_balancer_id} \
