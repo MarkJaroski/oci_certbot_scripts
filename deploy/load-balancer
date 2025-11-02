@@ -20,6 +20,7 @@ oci lb listener update \
 	--default-backend-set-name ${backend_set_name} \
 	--port 443 \
 	--protocol TCP \
+	--protocols '["TLSv1.2","TLSv1.3"]' \
 	--force \
 	--wait-for-state SUCCEEDED \
 	> /tmp/${cert_name}_use.json
